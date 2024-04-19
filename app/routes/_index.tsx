@@ -1,3 +1,4 @@
+import { makeStyles } from "@fluentui/react-components";
 import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
@@ -7,10 +8,24 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+const useStyles = makeStyles({
+  root: {
+    fontSize: "32px",
+    color: "red",
+    fontFamily: "fantasy",
+  },
+});
+
+function ExampleComponent() {
+  const classes = useStyles();
+  return <div className={classes.root}>Hello world</div>;
+}
+
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
+      <ExampleComponent />
       <ul>
         <li>
           <a
